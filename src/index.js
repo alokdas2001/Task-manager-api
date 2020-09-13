@@ -5,7 +5,7 @@ const taskRouter = require('./routers/task')
 
 
 const app = express()
-const port = process.env.PORT  // loading in a port
+const port = PORT  // loading in a port
 
 app.use(express.json())
 app.use(userRouter)
