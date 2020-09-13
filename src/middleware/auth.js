@@ -5,7 +5,7 @@ const auth = async (req , res , next) =>{
 
     try{
         const token = req.header('Authorization').replace('Bearer ' , '')  //stores token user provided
-        const decoded = jwt.verify(token , process.env.JWT_SECRET)  // validate the header...nodejscourse is auth key can be anything but same as in models/user GenAuthToken
+        const decoded = jwt.verify(token ,JWT_SECRET)  // validate the header...nodejscourse is auth key can be anything but same as in models/user GenAuthToken
         const user = await User.findOne({_id:decoded._id , 'tokens.token':token}) // find the user by token
 
         if(!user){
